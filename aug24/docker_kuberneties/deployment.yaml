@@ -1,0 +1,19 @@
+apiVersion: apps/v1   # Corrected from app/v1 to apps/v1
+kind: Deployment
+metadata:
+  name: golang-web-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: golang-web-app
+  template:
+    metadata:
+      labels:
+        app: golang-web-app
+    spec:
+      containers:
+      - name: golang-web-app
+        image: sivaprasad1230/golang-web-app:latest
+        ports:
+        - containerPort: 8080
